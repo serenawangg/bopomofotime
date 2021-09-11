@@ -12,134 +12,20 @@
 </head>
 <style>
 
-h1 {
-  margin: 20px;
-  text-align:center;
-  font-size:100px;
-  background-size: cover;
-  position: relative;
-  text-transform: uppercase;
-  font-family: 'Rancho', cursive;
-
-}
-h2 {
-  margin: 60px;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-}
-
-
-h5{
-  text-align:center;
-}
-
-.linkedin {
-  text-align:center;
-  margin: 250px;
-}
-
-.intro{
-  text-align:center;
-  animation-timing-function: ease-in;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-}
-.mystuff {
-  display:inline-block;
-}
-
-.github {
-  text-align:center;
-  margin:200px;
-}
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}     
-.resume{
-  margin: 150px;
-}
-.contact{
-  text-align:center;
-}
-.facebok{
-  display:inline-block;
-  margin:50px;
-}
-.gmail{
-  display:inline-block;
-}
-.chat{
-  text-align:center;
-  margin:200px;
-}
-
-.suggestion{
-  text-align:center;
-  margin:200px;
-}
-
-.collapsible {
-  background-color: rgb(97, 136, 187);
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-  padding: 15px;
-  display:inline-block;
-  border: none;
-  text-align:center;
-  width:20%;
-  outline: none;
-  font-size: 15px;
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.ys{
-  background-color: #555;
-}
-
-.collapsible:hover{
-  background-color: #555;
-}
-
-.collapsible:after {
-  content: '\002B';
-  color: rgba(129, 128, 128, 0.925);
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
-}
-
-.ys:after {
-  content: "\2212";
-}
-
-.content {
-  padding: 0 30px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color:transparent;
-  text-align:center;
-  font-family: 'Rancho', cursive;
-  font-size:x-large;
-  font-weight:400;
+.logo {
+	display: block;
+	margin-left:auto;
+	margin-right:auto;
+	width: 40%;
 }
 
 </style>
 
+<!--Logo-->
+<div class="logo">
+	<img src="{% static "images/logo.jpg" %}"/>
+</div>
 
-<!-- Introduce Yourself -->
-<div class="intro">
-  <h1>Serena Wang</h1> 
-</div>
-  <button class="collapsible">Biography</button>
-<div class="content">
-  <p>Hi, my name is Serena Wang and I'm currently a junior at CSU Chico pursuing a BS in Computer Science and also seeking a Summer 2021 internship. Keep scrolling to access my Linkedin, Github, and Resume. Login to chat and share projects with me as well!</p>
-</div>
 
 <script>
   var coll = document.getElementsByClassName("collapsible");
@@ -159,64 +45,10 @@ h5{
   </script>
 
 
-<!-- Linkedin Account -->
-
-<div class="my-stuff">
-<div class="linkedin" class="link3 animated fadeIn delay-600">
-      <a href="https://www.linkedin.com/in/serena-wang-a80833183/" target="_blank">
-        <h3>Linkedin Profile</h3>
-      </a>
 
 
 
-<!-- Github Account -->
-<div class="github">
-  <a href="https://www.github.com/serenawangg" target="_blank">
-    <h3>Github Profile</h3>
-  </a>
-</div>
-</div>
 
-<!--Resume-->
-<div class="resume">
-  <h3 style="text-align:center" style="color:rgb(30, 155, 228)">Resume</h3>
-</div>
-
-<!--More Contact info-->
-<div class="contact">
-<h5 style="text-align:center">For more contact info, you can also visit/e-mail the following: </h5>
-<div class="facebok">
-    <a href="https://www.facebook.com/serena.wang.5015" target="_blank">
-    <h5>Facebook</h5>
-  </a>
-</div>
-<div class="gmail">
-  <h5>
-    <h5>serenawang621@gmail.com</h5>
-  </h5>
-</div>
-</div>
-
-
-
-<!-- chat -->
-{% if user.is_authenticated %}
-<div class="chat">
-  <a href="/chat/">
-    <h3>Chat with me!</h3>
-  </a>
-</div>
-{%endif%}
-
-
-
-{% if user.is_authenticated %}
-<div class="suggestion">
-  <a href="/share/">
-    <h3>Share projects with me!</h3>
-  </a>
-</div>
-{%endif%}
 
 <!-- Form Goes Here-->
 

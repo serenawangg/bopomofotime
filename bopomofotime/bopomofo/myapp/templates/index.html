@@ -18,6 +18,63 @@
 	margin-right:auto;
 	width: 40%;
 }
+ .button {
+  border: none;
+  color: black;
+  padding: 16px 128px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button1 {
+  background-color: #90EE90;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: rgb(100, 175, 255);
+  color: white;
+}
+.button2 {
+  background-color: rgb(100, 200, 100);
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+.button2:hover {
+  background-color: rgb(100, 210, 255);
+  color: white;
+}
+.button3 {
+  background-color: rgb(100, 210, 255);
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.button3:hover {
+  background-color: rgb(100, 200, 100);
+  color: white;
+}
+.button4 {
+  background-color: rgb(100, 175, 255);
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.button4:hover {
+  background-color: #90EE90;
+  color: white;
+}
+
+
 
 </style>
 
@@ -25,6 +82,13 @@
 <div class="logo">
 	<img src="{% static "images/logo.jpg" %}"/>
 </div>
+
+<nav>
+	<a href="/studypage/"><button class="button button1">Study Page</button></a>
+	<a href="/mixandmatch/"><button class="button button2">Mix and Match</button></a>
+	<a href="/guesstheletter/"><button class="button button3">Guess the Letter</button></a>
+	<a href="/drawandcompare/"><button class="button button4">Draw and Compare</button></a>
+</nav>
 
 
 <script>

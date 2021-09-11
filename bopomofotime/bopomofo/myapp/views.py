@@ -22,6 +22,30 @@ def index(request):
             }
     return render(request, "index.html", context=context)
 
+def studypage(request):
+    context = {
+            "title": "Study Page",
+            }
+    return render(request, "studypage.html", context=context)
+
+def mixandmatch(request):
+    context = {
+            "title": "Mix and Match",
+            }
+    return render(request, "mixandmatch.html", context=context)
+
+def guesstheletter(request):
+    context = {
+            "title": "Guess the Letter",
+            }
+    return render(request, "guesstheletter.html", context=context)
+
+def drawandcompare(request):
+    context = {
+            "title": "Draw and Compare",
+            }
+    return render(request, "drawandcompare.html", context=context)
+
 @login_required
 def page(request, page=0):
     return render(request, "index.html", context=context)

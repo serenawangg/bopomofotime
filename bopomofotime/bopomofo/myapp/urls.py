@@ -9,4 +9,8 @@ urlpatterns = [
         path('login/', auth_views.LoginView.as_view()),
         path('register/', views.register),
         path('logout/', views.logout_view),
+        path('studypage/', views.studypage),
+        path('mixandmatch/', views.mixandmatch),
+        path('guesstheletter/', views.guesstheletter),
+        path('drawandcompare/', views.drawandcompare),
 ]

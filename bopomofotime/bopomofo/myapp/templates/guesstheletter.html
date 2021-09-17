@@ -5,5 +5,203 @@
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
 <html>
+<style>
+h1 {
+    font-family: 'Trebuchet MS', sans-serif;
+    background-position: center;
+    text-align: center;
+}
+button {
+  color: black;
+  background-color: rgb(150,175,200);
+  padding:15px 32px;
+
+  display: block;
+  font-size: 20px;
+  margin-left: 2%;
+}
+</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+	<h1> Guess the Letter </h1>
+	<h4 id="message1"> Type the english translation for <text id="name1"></text>.</h4>
+	<div id="disappear1">
+		<input type="text" id="input1"/><button onclick="submit1()">Submit</button>
+	</div>
+	<h4 id="answer1"></h4>
+	<h4 id="button1"></h4>
+
+
+<script>
+	var english = ['b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h','j','q','x','zh','ch','sh','r','z','c','s','a','o','e','eh','ai','ei','au','ou','an','en','ang','eng','er','y','u','yu'];
+	var alphabet = ['ㄅ','ㄆ','ㄇ','ㄈ','ㄉ','ㄊ','ㄋ','ㄌ','ㄍ','ㄎ','ㄏ','ㄐ','ㄑ','ㄒ','ㄓ','ㄔ','ㄕ','ㄖ','ㄗ','ㄘ','ㄙ','ㄚ','ㄛ','ㄝ','ㄜ','ㄞ','ㄟ','ㄠ','ㄡ','ㄢ','ㄣ','ㄤ','ㄥ','ㄦ','ㄧ','ㄨ','ㄩ'];
+	var random1 = Math.floor(Math.random()*alphabet.length);
+	
+	function submit1(){
+		var b = input1.value;
+		if(random1 == 0 && b==english[0]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==1 && b==english[1]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==2 && b==english[2]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==3 && b==english[3]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==4 && b==english[4]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==5 && b==english[5]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==6 && b==english[6]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==7 && b==english[7]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==8 && b==english[8]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==9 && b==english[9]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==10 && b==english[10]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==11 && b==english[11]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==12 && b==english[12]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==13 && b==english[13]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==14 && b==english[14]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==15 && b==english[15]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==16 && b==english[16]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==17 && b==english[17]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==18 && b==english[18]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==19 && b==english[19]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==20 && b==english[20]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==21 && b==english[21]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==22 && b==english[22]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==23 && b==english[23]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==24 && b==english[24]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==25 && b==english[25]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==26 && b==english[26]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==27 && b==english[27]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==28 && b==english[28]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==29 && b==english[29]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==30 && b==english[30]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==31 && b==english[31]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==32 && b==english[32]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==33 && b==english[33]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==34 && b==english[34]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==35 && b==english[35]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else if(random1==36 && b==english[36]){
+			document.getElementById("answer1").innerHTML="Correct!";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}else{
+			document.getElementById("answer1").innerHTML = "Incorrect";
+			document.getElementById("button1").innerHTML="<button onclick=buttons()>Next</button>";
+			document.getElementById("disappear1").innerHTML="";
+		}
+
+	}
+			document.getElementById("name1").innerHTML=alphabet[random1];
+	function buttons(){
+			random1 = Math.floor(Math.random()*alphabet.length);
+		document.getElementById("name1").innerHTML=alphabet[random1];
+		document.getElementById("button1").innerHTML="";
+		document.getElementById("disappear1").innerHTML= "<input type=text id=input1 /><button onclick=submit1()>Submit</button>";
+		document.getElementById("answer1").innerHTML="";
+	}
+	
+</script>
 {% endblock %}
 </html>

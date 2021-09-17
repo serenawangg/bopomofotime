@@ -5,5 +5,22 @@
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
 <html>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+
+
+<script>
+	var html="";
+	for(var i=0; i<alphabet.length; i++){
+		if(i%2==0){
+			document.write("<h1>" + "&#" + alpha2 + ";" + " " + english[i] + "</h1>");
+		}else{
+			document.write("<h2>" + "&#" + alpha2 + ";" + " " + english[i] + "</h2>");
+				
+		}
+		alpha2++;
+	}
+	document.getElementById("printAlph").innerHTML = html;
+</script>
+
 {% endblock %}
 </html>

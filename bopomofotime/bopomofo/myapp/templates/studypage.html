@@ -1,8 +1,72 @@
 <!DOCTYPE html>
+
 {% extends "base.html" %}
 {% load static %}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
 <html>
-{% endblock %}
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+<style>
+h1{
+	padding: 30px;
+	font-size: 4em;
+	width: 150px;
+	height: 300px;
+	border: 5px solid gray;
+	border-color: rgb(100,200,100);
+	margin-left: 40px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align: center;
+    	font-family: 'Trebuchet MS', sans-serif;
+	display: inline-block;
+}
+h2{
+	padding: 30px;
+	font-size: 4em;
+	width: 150px;
+	height: 300px;
+	border: 5px solid gray;
+	border-color: rgb(100,175,255);
+	margin-left: 40px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align: center;
+    	font-family: 'Trebuchet MS', sans-serif;
+	display: inline-block;
+}
+
+.inline-div{
+	display: inline;
+}
+
+</style>
+
+<body>
+	<div id="printAlph"></div>
+
+</body>
+
+
+<script>
+	var english = ['b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h','j','q','x','zh','ch','sh','r','z','c','s','a','o','e','eh','ai','ei','au','ou','an','en','ang','eng','er','y','u','yu'];
+	var alpha2=12549;
+	
+	var html="";
+	for(var i=0; i<alphabet.length; i++){
+		if(i%2==0){
+			document.write("<h1>" + "&#" + alpha2 + ";" + " " + english[i] + "</h1>");
+		}else{
+			document.write("<h2>" + "&#" + alpha2 + ";" + " " + english[i] + "</h2>");
+				
+		}
+		alpha2++;
+	}
+	document.getElementById("printAlph").innerHTML = html;
+
+</script>
+
+
+
+	{% endblock %}
 </html>

@@ -6,6 +6,7 @@
 {% block content %}
 <html>
 	<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+	<meta name="viewport" content="width=device-width, intial-scale=1"/>
 <style>
 h1{
 	padding: 30px;
@@ -40,20 +41,96 @@ h2{
 	display: inline;
 }
 
+.flip-card {
+  font-size: 6em;
+  background-color: transparent;
+  width: 200px;
+  height: 200px;
+  margin-left: 60px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  perspective: 1000px;
+  display: inline-block;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  display: inline-block;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front2, .flip-card-back2{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front2{
+  background-color: rgb(100,175,255);
+  color: black;
+}
+.flip-card-back2{
+  background-color: rgb(100,175,255);
+  transform: rotateY(180deg);
+  color:white;
+
+}
+
+.flip-card-front {
+  background-color: rgb(100,200,100);
+  color: black;
+}
+
+.flip-card-back {
+  background-color: rgb(100,200,100);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+h3{
+	margin-top: 30px;
+	font-size: 70px;
+  	text-align: center;
+}
+h4{
+	margin-top: 30px;
+	font-size: 70px;
+  	text-align: center;
+}
+
+
+
+
 </style>
 
-<body>
-	<div id="printAlph"></div>
-
-</body>
 
 
 <script>
+	function myfunc(){
 	var english = ['b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h','j','q','x','zh','ch','sh','r','z','c','s','a','o','e','eh','ai','ei','au','ou','an','en','ang','eng','er','y','u','yu'];
 	var alpha2=12549;
 	
-	var html="";
-	for(var i=0; i<alphabet.length; i++){
+		/*
+	for(var i=0; i<english.length; i++){
 		if(i%2==0){
 			document.write("<h1>" + "&#" + alpha2 + ";" + " " + english[i] + "</h1>");
 		}else{
@@ -62,7 +139,36 @@ h2{
 		}
 		alpha2++;
 	}
-	document.getElementById("printAlph").innerHTML = html;
+		alpha2=12549;
+		*/
+	for(var i=0; i<english.length; i++){
+		if(i%2==0){
+			document.write('<div class="flip-card">');
+			document.write('<div class="flip-card-inner">');
+			document.write('<div class="flip-card-front">');
+			document.write("<h3>" + "&#"+ alpha2 +";</h3>");
+			document.write("</div>");
+			document.write('<div class="flip-card-back">');
+			document.write("<h3>" + english[i] + "</h3>");
+			document.write("</div>");
+			document.write("</div>");
+			document.write("</div>");
+		}else{
+			document.write('<div class="flip-card">');
+			document.write('<div class="flip-card-inner">');
+			document.write('<div class="flip-card-front2">');
+			document.write("<h4>" + "&#"+ alpha2 +";</h4>");
+			document.write("</div>");
+			document.write('<div class="flip-card-back2">');
+			document.write("<h4>" + english[i] + "</h4>");
+			document.write("</div>");
+			document.write("</div>");
+			document.write("</div>");
+		}
+		alpha2++;
+	}
+	}
+	document.getElementById("printAlph").innerHTML = myfunc();
 
 </script>
 

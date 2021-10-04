@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<html>
+<style>
+h1 {
+    font-family: 'Trebuchet MS', sans-serif;
+    background-position: center;
+    text-align: center;
+}
+
+.row{
+	text-align: center;
+}
+
+.card{
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	background-color:#eee;
+	cursor: pointer;
+}
+.card:hover{
+	border: 1px solid black;
+}
+.red{
+	background-color: red;
+}
+.green{
+	background-color: green;
+}
+.blue{
+	background-color: blue;
+}
+.orange{
+	background-color: orange;
+}
+.cyan{
+	background-color: cyan;
+}
+.yellow{
+	background-color: yellow;
+}
+.pink{
+	background-color: pink;
+}
+.teal{
+	background-color: teal;
+}
+.color-hidden{
+	background-color: #eee;
+}
+.card.done{
+	cursor: default;
+}
+.card.done:hover{
+	cursor:default;
+	box-shadow: none;
+}
+
+.grid{
+	display: flex;
+	flex-wrap: wrap;
+	height: 300px;
+	width: 400px;
+}
+
+
+</style>
+<body>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+	<h1> Mix and Match </h1>
+	<p id="mixandmatch"></p>
+	<div class="row">
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+	</div>
+	<div class="row">
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+	</div>
+	<div class="row">
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+	</div>
+	<div class="row">
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+		<div  class="card color-hidden" onclick="onCardClicked(event)"></div>
+	</div>
+
+
+</body>
+<script>
+	var alphabet = ['ㄅ','ㄆ','ㄇ','ㄈ','ㄉ','ㄊ','ㄋ','ㄌ','ㄍ','ㄎ','ㄏ','ㄐ','ㄑ','ㄒ','ㄓ','ㄔ','ㄕ','ㄖ','ㄗ','ㄘ','ㄙ','ㄚ','ㄛ','ㄝ','ㄜ','ㄞ','ㄟ','ㄠ','ㄡ','ㄢ','ㄣ','ㄤ','ㄥ','ㄦ','ㄧ','ㄨ','ㄩ'];
+	var english = ['b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h','j','q','x','zh','ch','sh','r','z','c','s','a','o','e','eh','ai','ei','au','ou','an','en','ang','eng','er','y','u','yu'];
+	var alpha;
+	var iter=12549;
+
+	const colors=[
+		'pink','yellow','red','cyan','blue','teal','orange','green'
+		];
+
+	let clickedCard=null;
+	let preventClick=false;
+	let combofound=0;
+	const panels = [...document.querySelectorAll('.card')];
+	for(let color of colors){
+		const panelAIndex = parseInt(Math.random() * panels.length);
+		const panelA = panels[panelAIndex];
+		panels.splice(panelAIndex, 1);
+		panelA.className += ` ${color}`;
+		panelA.setAttribute('data-color', color);
+
+		const panelBIndex = parseInt(Math.random() * panels.length);
+		const panelB = panels[panelBIndex];
+		panels.splice(panelBIndex, 1);
+		panelB.className += ` ${color}`;
+		panelB.setAttribute('data-color', color);
+	}
+	function onCardClicked(e){
+		const target = e.currentTarget;
+		console.log(target.className);
+		if(preventClick || target===clickedCard || target.className.includes('done')){
+			return;
+		}
+		target.className = target.className.replace('color-hidden', '').trim();
+		target.className +=' done';
+	console.log(target.getAttribute('data-color'));
+		if(!clickedCard){
+			clickedCard=target;
+		}else if(clickedCard){
+			preventClick=true;
+			if(clickedCard.getAttribute('data-color')!==target.getAttribute('data-color')){
+				setTimeout(() => {
+					clickedCard.className=clickedCard.className.replace('done', '').trim()+' color-hidden';
+					target.className=target.className.replace('done', '').trim()+' color-hidden';
+					clickedCard=null;
+					preventClick=false;
+				}, 500);
+			}else{
+				clickedCard=null;
+				preventClick=false;
+				combofound++;
+				if(combofound===8){
+					alert("You win!");
+				}
+			}
+		}
+	}
+	
+	
+
+</script>
+
+{% endblock %}
+</html>

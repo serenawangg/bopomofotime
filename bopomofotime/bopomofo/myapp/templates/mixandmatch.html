@@ -1,88 +1,173 @@
-
 <!DOCTYPE html>
 {% extends "base.html" %}
 {% load static %}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
 <html>
-<style>
-h1 {
-    font-family: 'Trebuchet MS', sans-serif;
-    background-position: center;
-    text-align: center;
+   <style>
+.row{
+   text-align: center;
 }
-</style>
-	<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
-	<h1> Mix and Match </h1>
-	<p id="mixandmatch"></p>
+	.card{
+	   display:inline-block;
+	   width: 100px;
+	   background-color: #eee;
+	   height: 100px;
+	   margin-top: 10px;
+	   margin-right: 10px;
+	   font-size: 4em;
+	}
+
+	.card:hover{
+	   border: 2px solid black;
+	}
+	.card.done{
+	   cursor: default;
+	}
+	.card.done:hover{
+	   cursor:default;
+	   box-shadow: none;
+	}
+	.color-hidden{
+	   background-color: rgb(100, 175, 255);
+	}
+	button {
+	  color: black;
+	  background-color: rgb(150,175,200);
+	  padding:15px 32px;
+
+	  display: block;
+	  font-size: 20px;
+	  margin: auto;
+	  transition-duration: 0.4s;
+	}
+	button:hover{
+	   background-color: #DCDCDC;
+	   
+
+	}
+   </style>
+   <body>
+      	<p id="demo"></p>
+	<button onClick="window.location.reload();">Restart</button>
 
 
-<script>
-	var english = ['b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h','j','q','x','zh','ch','sh','r','z','c','s','a','o','e','eh','ai','ei','au','ou','an','en','ang','eng','er','y','u','yu'];
-	var alpha;
-	var html = " ";
-	var iter=12549;
-	var iter2=3105;
-	document.write(english[3]);
-	document.getElementById("mixandmatch").innerHTML = english;
+
+   </body>
+   <script>
+      var english = ['b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h','j','q','x','zh','ch','sh','r','z','c','s','a','o','e','eh','ai','ei','au','ou','an','en','ang','eng','er','y','u','yu'];
+var alphabet = ['ㄅ','ㄆ','ㄇ','ㄈ','ㄉ','ㄊ','ㄋ','ㄌ','ㄍ','ㄎ','ㄏ','ㄐ','ㄑ','ㄒ','ㄓ','ㄔ','ㄕ','ㄖ','ㄗ','ㄘ','ㄙ','ㄚ','ㄛ','ㄜ','ㄝ','ㄞ','ㄟ','ㄠ','ㄡ','ㄢ','ㄣ','ㄤ','ㄥ','ㄦ','ㄧ','ㄨ','ㄩ'];
+
+function shuffle(array) {
+  let current= array.length,  randomI;
+  while (current!= 0) {
+    randomI = Math.floor(Math.random() * current);
+    current--;
+    [array[current], array[randomI]] = [
+      array[randomI], array[current]];
+  }
+
+  return array;
+}
+
+	var numbers=[];
+	var randomarray=[];
+	var randomarray2=[];
+	for(var i=0; i<8; i++){
+	   numbers.push(i);
+	   randomarray.push(i);
+	   randomarray2.push(i);
+	}	
+	var randInt = Math.floor(Math.random()*37)+1;
+	var randInt2 = Math.floor(Math.random()*37)+1;
+	if(randInt%2==0){
+	   randInt+=1;
+	}
+	if(randInt===37){
+	   randInt-=2;
+	}
+	if(randInt2%2==0){
+	   randInt2+=1;
+	}
+	if(randInt2===37){
+	   randInt-=2;
+	}
+//	document.write(randInt);
+	for(var i=0; i<8; i++){
+	   numbers[i]=(numbers[i]*randInt)%37;
+	   randomarray[i]=(randomarray[i]*randInt)%8;
+	   randomarray2[i]=(randomarray2[i]*randInt2)%8;
+	}
+	shuffle(randomarray);
+	shuffle(randomarray2);
+	var iter=0;
+	var counter=2;
+	for(var i=0; i<4; i++){
+	   if(i===2){
+	      document.write('<br>');
+	   }
+	   document.write('<div class="row">');
+	   document.getElementsByTagName("DIV")[counter].setAttribute("idnum", "bird");
+	   counter++;
+	   if(i==2){
+	      iter=0;
+	   }
+	   for(var j=0; j<4; j++){
+	      if(i===0 || i===1){
+		 document.write('<div class="card color-hidden" idnum="bird" onclick="onCardClicked(event)">' + alphabet[numbers[randomarray[iter]]] + '</div>');
+		 document.getElementsByTagName("DIV")[counter].setAttribute("idnum", randomarray[iter]);
+		 counter++;
+		 iter++;
+	      }else{
+		 document.write('<div class="card color-hidden" idnum="bird" onclick="onCardClicked(event)">' + english[numbers[randomarray2[iter]]] + '</div>');
+		 document.getElementsByTagName("DIV")[counter].setAttribute("idnum", randomarray2[iter]);
+		 counter++;
+	      	iter++;
+	      }
+	   }//inside for
+	   document.write('</div>');
+	}//outside for
 	
-	
-	
+	let clickedCard=null;
+	let preventClick=false;
+	let combofound=0;
 
-var data = {
-    terms: [{
-        index: 0,
-        text: "SalesWay"
-      }, {
-        index: 1,
-        text: "Red Flags"
-      }, {
-        index: 2,
-        text: "Coach"
-      }, {
-        index: 3,
-        text: "Single Sales Objective"
-      }, {
-        index: 4,
-        text: "Opportunity Plan"
-      }, {
-        index: 5,
-        text: "Minimum Acceptable Action"
-      },
-    ],
-    definitions: [{
-        index: 0,
-        text: "SalesWay MSI Go-to-Customer Methodology"
-      }, {
-        index: 1,
-        text: "Indicate unknowns or uncertainties"
-      }, {
-        index: 2,
-        text: "Acts as a guide"
-      }, {
-        index: 3,
-        text: "Objective aligned to an opportunity"
-      }, {
-        index: 4,
-        text: "Strategic in nature"
-      }, {
-        index: 5,
-        text: "Your walk away point"
-      },
-    ],
- pairs: {
-      0: 0,
-      1: 1,
-      2: 2,
-      3: 3,
-      4: 4,
-      5: 5,
-    }
-  };
 
-				
-	document.getElementById("printAlph").innerHTML = s1;
-</script>
+	function onCardClicked(e){
+	   const target=e.currentTarget;
+	   console.log(target.getAttribute("idnum"));
+	   if(preventClick || target === clickedCard || target.className.includes('done')){
+	      return;
+	   }
+	   target.className=target.className.replace('color-hidden', '').trim();
+	   target.className += ' done';
+	   if(!clickedCard){
+	      clickedCard=target;
+	   }else if(clickedCard){
+	      preventClick=true;
+	      if(clickedCard.getAttribute("idnum")!==target.getAttribute("idnum")){
+		 setTimeout(() => {
+		    clickedCard.className=clickedCard.className.replace('done', '').trim() + ' color-hidden';
+		    target.className=target.className.replace('done','').trim()+ ' color-hidden';
+		       clickedCard=null;
+		       preventClick=false;
 
-{% endblock %}
+		 }, 500);
+	      }else{
+		 clickedCard=null;
+		 preventClick=false;
+		 combofound++;
+		 if(combofound===8){
+		    alert("You win!");
+		 }
+	      }
+	   }
+	}
+
+
+
+
+
+   </script>
+   {% endblock %}
 </html>

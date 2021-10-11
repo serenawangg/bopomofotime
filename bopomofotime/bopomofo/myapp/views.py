@@ -52,12 +52,6 @@ def drawandcompare(request):
             }
     return render(request, "drawandcompare.html", context=context)
 
-def traceit(request):
-    context = {
-            "title": "Trace It",
-            }
-    return render(request, "traceit.html", context=context)
-
 def drawandcompare2(request):
     context = {
             "title": "Draw and Compare 2.0",

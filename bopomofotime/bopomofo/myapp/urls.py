@@ -12,5 +12,7 @@ urlpatterns = [
         path('studypage/', views.studypage),
         path('mixandmatch/', views.mixandmatch),
         path('guesstheletter/', views.guesstheletter),
+        path('traceit/', views.traceit),
         path('drawandcompare/', views.drawandcompare),
+        path('drawandcompare2/', views.drawandcompare2),
 ]

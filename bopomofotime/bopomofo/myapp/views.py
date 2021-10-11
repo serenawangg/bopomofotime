@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+#import re 
+#from zhon import zhuyin as zhon
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
@@ -23,8 +25,12 @@ def index(request):
     return render(request, "index.html", context=context)
 
 def studypage(request):
+    alphabet = []
+    #for i in zhon.characters:
+    #    alphabet[i]=zhon.characters[i]
     context = {
             "title": "Study Page",
+    #        "alphabet": alphabet,
             }
     return render(request, "studypage.html", context=context)
 
@@ -45,6 +51,18 @@ def drawandcompare(request):
             "title": "Draw and Compare",
             }
     return render(request, "drawandcompare.html", context=context)
+
+def traceit(request):
+    context = {
+            "title": "Trace It",
+            }
+    return render(request, "traceit.html", context=context)
+
+def drawandcompare2(request):
+    context = {
+            "title": "Draw and Compare 2.0",
+            }
+    return render(request, "drawandcompare2.html", context=context)
 
 @login_required
 def page(request, page=0):

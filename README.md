@@ -1,6 +1,6 @@
 # Bopomofo Time!
 
-Serena Wang: Capstone Project 2021, CSU Chico 
+Serena Wang: Capstone Project Fall 2021, CSU Chico 
 
 
 Bopomofo Time!

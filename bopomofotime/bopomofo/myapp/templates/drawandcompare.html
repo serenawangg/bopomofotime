@@ -11,19 +11,24 @@ h2{
     text-align: center;
     font-size: 2em;
 }
+h3{
+    font-family: 'Trebuchet MS', sans-serif;
+    background-position: center;
+    text-align: center;
+    font-size: 14em;
+    margin-right: 93%;
+}
 h5 {
     font-family: 'Trebuchet MS', sans-serif;
     background-position: center;
     text-align: center;
     font-size: 4em;
 }
-	button{
+	input{
 	   color: black;
 	   background-color: rgb(150,175,200);
-	   padding: 15px 32px;
-	   display:block;
+	   padding: 12px 22px;
 	   font-size: 20px;
-	   margin: auto;
 	   transition-duration: 0.4s;
 	}
 	button:hover{
@@ -98,13 +103,21 @@ h5 {
     function erase(){
             ctx.clearRect(0, 0, w, h);
             document.getElementById("canvasing").style.display = "none";
+       	    document.getElementById("answer").style.display="none";
     }
     
     function save(){
-        document.getElementById("canvasing").style.border = "2px solid";
-        var dataURL = canvas.toDataURL();
-        document.getElementById("canvasing").src = dataURL;
-        document.getElementById("canvasing").style.display = "inline-block";
+        document.getElementById("answer").style.border = "2px solid";
+       var dataURL = alphabet[random1];
+        document.getElementById("answer").innerHTML= dataURL;
+       document.getElementById("answer").style.width = "400px";
+       document.getElementById("answer").style.height= "400px";
+       document.getElementById("answer").style.position="absolute";
+       document.getElementById("answer").style.top="27%";
+       document.getElementById("answer").style.left="64%";
+      
+       
+        document.getElementById("answer").style.display = "inline-block";
     }
     
     function findxy(cursor, e){
@@ -145,8 +158,11 @@ h5 {
         <div style="margin-left: 5%;" >Eraser</div>
         <div id="white" onclick="color(this)" style="margin-left:5%; width:15px; height:15px; background:white;border:2px solid;"></div>
         <img id="canvasing" style="position:absolute;top:27%;left:54%;">
-        <input style="margin-left: 14%;"type="button" value="check" id="btn" size="30" onclick="save()" >
-        <input type="button" value="clear" id="clr" size="23" onclick="erase()" >
+	<h3 id="answer"></h3>
+        <input style="margin-left: 34%;"type="button" value="check" id="btn" size="30" onclick="save()" >
+		
+        <input type="button" value="redraw/clear" id="clr" size="23" onclick="erase()" >
+	<input type="button" value="another one" onclick="window.location.reload();">
     </body>
 {% endblock %}
 </html>

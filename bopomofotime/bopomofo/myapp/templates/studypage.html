@@ -71,7 +71,6 @@ h2{
 }
 
 .flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
 }
 
 .flip-card-front, .flip-card-back {
@@ -132,26 +131,24 @@ h4{
 
 
 <script>
+	function flip(event){
+	   var element = event.currentTarget;
+	   if(element.className==="flip-card-inner"){
+	      if(element.style.transform=="rotateY(180deg)"){
+		 element.style.transform="rotateY(0deg)";
+	      }else{
+		 element.style.transform="rotateY(180deg)";
+	      }
+	   }
+	};
 	function myfunc(){
 	var english = ['b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h','j','q','x','zh','ch','sh','r','z','c','s','a','o','e','eh','ai','ei','au','ou','an','en','ang','eng','er','y','u','yu'];
 	var alpha2=12549;
 	
-		/*
-	for(var i=0; i<english.length; i++){
-		if(i%2==0){
-			document.write("<h1>" + "&#" + alpha2 + ";" + " " + english[i] + "</h1>");
-		}else{
-			document.write("<h2>" + "&#" + alpha2 + ";" + " " + english[i] + "</h2>");
-				
-		}
-		alpha2++;
-	}
-		alpha2=12549;
-		*/
 	for(var i=0; i<english.length; i++){
 		if(i%2==0){
 			document.write('<div class="flip-card">');
-			document.write('<div class="flip-card-inner">');
+			document.write('<div class="flip-card-inner" onclick="flip(event)">');
 			document.write('<div class="flip-card-front">');
 			document.write("<h3>" + "&#"+ alpha2 +";</h3>");
 			document.write("</div>");
@@ -162,7 +159,7 @@ h4{
 			document.write("</div>");
 		}else{
 			document.write('<div class="flip-card">');
-			document.write('<div class="flip-card-inner">');
+			document.write('<div class="flip-card-inner" onclick="flip(event)">');
 			document.write('<div class="flip-card-front2">');
 			document.write("<h4>" + "&#"+ alpha2 +";</h4>");
 			document.write("</div>");
@@ -173,9 +170,12 @@ h4{
 			document.write("</div>");
 		}
 		alpha2++;
-	}
+		}
 	}
 	document.getElementById("printAlph").innerHTML = myfunc();
+
+
+
 
 </script>
 

@@ -12,6 +12,6 @@ urlpatterns = [
         path('studypage/', views.studypage),
         path('mixandmatch/', views.mixandmatch),
         path('guesstheletter/', views.guesstheletter),
-        path('drawandcompare/', views.drawandcompare),
-        path('drawandcompare2/', views.drawandcompare2),
+        path('memorizeandtrace/', views.memorizeandtrace),
+        path('drawandcompare/', views.drawandcompare2),
 ]

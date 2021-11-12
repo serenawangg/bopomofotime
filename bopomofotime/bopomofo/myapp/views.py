@@ -24,6 +24,7 @@ def index(request):
             }
     return render(request, "index.html", context=context)
 
+@login_required
 def studypage(request):
     alphabet = []
     #for i in zhon.characters:
@@ -34,27 +35,31 @@ def studypage(request):
             }
     return render(request, "studypage.html", context=context)
 
+@login_required
 def mixandmatch(request):
     context = {
             "title": "Mix and Match",
             }
     return render(request, "mixandmatch.html", context=context)
 
+@login_required
 def guesstheletter(request):
     context = {
             "title": "Guess the Letter",
             }
     return render(request, "guesstheletter.html", context=context)
 
-def drawandcompare(request):
+@login_required
+def memorizeandtrace(request):
     context = {
-            "title": "Draw and Compare",
+            "title": "Memorize and Trace",
             }
-    return render(request, "drawandcompare.html", context=context)
+    return render(request, "memorizetrace.html", context=context)
 
+@login_required
 def drawandcompare2(request):
     context = {
-            "title": "Draw and Compare 2.0",
+            "title": "Draw and Compare",
             }
     return render(request, "drawandcompare2.html", context=context)
 

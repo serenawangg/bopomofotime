@@ -41,8 +41,8 @@ h5 {
     var alphabet = ['ㄅ','ㄆ','ㄇ','ㄈ','ㄉ','ㄊ','ㄋ','ㄌ','ㄍ','ㄎ','ㄏ','ㄐ','ㄑ','ㄒ','ㄓ','ㄔ','ㄕ','ㄖ','ㄗ','ㄘ','ㄙ','ㄚ','ㄛ','ㄜ','ㄝ','ㄞ','ㄟ','ㄠ','ㄡ','ㄢ','ㄣ','ㄤ','ㄥ','ㄦ','ㄧ','ㄨ','ㄩ'];	
 	var random1 = Math.floor(Math.random()*english.length);
 	//document.getElementById("letter").innerHTML=english[random1];
-	document.write("<h5>Draw and Compare 2.0</h5>");
-	document.write('<h2>Draw the Mandarin letter for "' + english[random1] + '" for accuracy rate.</h2>');
+	document.write("<h5>Draw and Compare</h5>");
+	document.write('<h2>Draw the Mandarin letter pronounced "' + english[random1] + '".</h2>');
 
 
 
@@ -95,38 +95,31 @@ h5 {
         ctx.moveTo(prev_x, prev_y);
         ctx.lineTo(cur_x, cur_y);
         ctx.strokeStyle = x;
-        ctx.lineWidth = y;
+        ctx.lineWidth = 10;
         ctx.stroke();
         ctx.closePath();//end drawing
     }
     
-    //function erase(){
-     //       ctx.clearRect(0, 0, w, h);
-      //      document.getElementById("canvasing").style.display = "none";
-       //	    document.getElementById("answer").style.display="none";
-    //}
+    function erase(){
+            ctx.clearRect(0, 0, w, h);
+            document.getElementById("canvasing").style.display = "none";
+       	    document.getElementById("answer").style.display="none";
+    }
     
     function save(){
-       document.getElementById("answer").style.border = "2px solid";
+        document.getElementById("answer").style.border = "2px solid";
        var dataURL = alphabet[random1];
-       document.getElementById("answer").innerHTML= dataURL;
+        document.getElementById("answer").innerHTML= dataURL;
        document.getElementById("answer").style.width = "400px";
        document.getElementById("answer").style.height= "400px";
        document.getElementById("answer").style.position="absolute";
        document.getElementById("answer").style.top="27%";
-       document.getElementById("answer").style.left="64%";
+       document.getElementById("answer").style.left="52%";
        document.getElementById("answer").style.display = "inline-block";
 
-       //var canv = document.getElementById("canvasing");
-       //var img = canvas.toDataURL("saved_images/");
-
-       //create canvas to save the input from user
-       //var image = canv.toDataURL('image/jpeg');
-       var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  
-       //var answer = document.getElementById("answer").toDataURL("image/png").replace("image/png", "image/octet-stream");
-       //window.location.href=answer;
-	window.location.href=image;
-
+       //compare accuracy
+       var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+       window.location.href=image;
     }
     
     function findxy(cursor, e){
@@ -160,7 +153,7 @@ h5 {
     }
     </script>
     <body onload="init()">
-        <canvas id="can" width="400" height="400" style="border:4px solid;margin-left:7%"></canvas>
+        <canvas id="can" width="396" height="396" style="border:2px solid;margin-left:18%;"></canvas>
         <div style="margin-left: 5%;">Pen</div>
 	<div id="black" onclick="color(this)" style="margin-left: 5%;width:15px;height:15px;background:black"></div>
 
@@ -168,7 +161,8 @@ h5 {
         <div id="white" onclick="color(this)" style="margin-left:5%; width:15px; height:15px; background:white;border:2px solid;"></div>
         <img id="canvasing" style="position:absolute;top:27%;left:54%;">
 	<h3 id="answer"></h3>
-        <input style="margin-left: 41%;"type="button" value="check" id="btn" size="30" onclick="save()" >
+        <input style="margin-left:34%;" type="button" value="redraw/clear" id="clr" size="23" onclick="erase()" >
+        <input type="button" value="check" id="btn" size="30" onclick="save()" >
 		
 	<input type="button" value="another one" onclick="window.location.reload();">
     </body>

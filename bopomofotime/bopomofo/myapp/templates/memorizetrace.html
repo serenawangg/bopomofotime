@@ -41,8 +41,11 @@ h5 {
     var alphabet = ['ㄅ','ㄆ','ㄇ','ㄈ','ㄉ','ㄊ','ㄋ','ㄌ','ㄍ','ㄎ','ㄏ','ㄐ','ㄑ','ㄒ','ㄓ','ㄔ','ㄕ','ㄖ','ㄗ','ㄘ','ㄙ','ㄚ','ㄛ','ㄜ','ㄝ','ㄞ','ㄟ','ㄠ','ㄡ','ㄢ','ㄣ','ㄤ','ㄥ','ㄦ','ㄧ','ㄨ','ㄩ'];	
 	var random1 = Math.floor(Math.random()*english.length);
 	//document.getElementById("letter").innerHTML=english[random1];
-	document.write("<h5>Draw and Compare</h5>");
-	document.write('<h2>Draw the Mandarin letter for "' + english[random1] + '".</h2>');
+	document.write("<h5>Memorize and Trace</h5>");
+document.write('<h2>Memorize and trace the Mandarin letter<h2>');
+	document.write('<h2>pronounced "' + english[random1] + '" to see how well you can draw it.</h2>');
+
+
 
     var canvas, ctx, flag = false,
         prev_x = 0, cur_x = 0, prev_y = 0, cur_y = 0,
@@ -54,6 +57,7 @@ h5 {
     function init(){
         canvas = document.getElementById('can');
         ctx = canvas.getContext("2d");
+        ctx.lineWidth = 10;
         w = canvas.width;
         h = canvas.height;
     
@@ -69,6 +73,12 @@ h5 {
         canvas.addEventListener("mouseout", function(e){
             findxy('out', e)
         }, false);
+	ctx.fillStyle="#C8C8C8";
+	ctx.font = "250px Trebuchet MS";
+
+	var dataURL = alphabet[random1];
+	ctx.fillText(dataURL, (canvas.width/2)-130, (canvas.height/2)+70 );
+       setTimeout(function(){ctx.clearRect(0, 0, w, h);}, 500);
     }
     
     function color(obj){
@@ -85,6 +95,7 @@ h5 {
        }else{
 	  y = 2;
        }
+    
     }
     
     function draw(){
@@ -92,31 +103,35 @@ h5 {
         ctx.moveTo(prev_x, prev_y);
         ctx.lineTo(cur_x, cur_y);
         ctx.strokeStyle = x;
-        ctx.lineWidth = y;
+        ctx.lineWidth = 10;
         ctx.stroke();
         ctx.closePath();//end drawing
     }
     
+    function erase(){
+            ctx.clearRect(0, 0, w, h);
+       	document.getElementById("answer").style.display="none";
+            document.getElementById("canvasing").style.display = "none";
+	ctx.fillStyle="#C8C8C8";
+	ctx.font = "250px Trebuchet MS";
+
+	var dataURL = alphabet[random1];
+	ctx.fillText(dataURL, (canvas.width/2)-130, (canvas.height/2)+70 );
+       setTimeout(function(){ctx.clearRect(0, 0, w, h);}, 500);
+    }
+    
     function save(){
-       document.getElementById("answer").style.border = "2px solid";
+//        document.getElementById("answer").style.border = "2px solid";
        var dataURL = alphabet[random1];
-       document.getElementById("answer").innerHTML= dataURL;
-       document.getElementById("answer").style.width = "404px";
+        document.getElementById("answer").innerHTML= dataURL;
+       document.getElementById("answer").style.width = "400px";
+       document.getElementById("answer").style.color= "#C8C8C8";
        document.getElementById("answer").style.height= "400px";
        document.getElementById("answer").style.position="absolute";
-       document.getElementById("answer").style.top="27%";
-       document.getElementById("answer").style.left="35%";
-       document.getElementById("answer").style.display = "inline-block";
-
-       //start comparing
-       //var image = canvas.toDataURL("image/png");  
-       //var image2 = document.getElementById("answer").setAttribute("src", "img1.jpg");
-
-       //var image2 = document.getElementById("answer").toDataURL("image/png");//	NOT WORKING
-       var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-       //window.location.href=answer;
-       //window.location.href=image;
-       //document.write("HELLO");
+       document.getElementById("answer").style.font="250px Trebuchet MS";
+       document.getElementById("answer").style.top="34%";
+       document.getElementById("answer").style.left="34.7%";
+        document.getElementById("answer").style.display = "inline-block";
     }
     
     function findxy(cursor, e){
@@ -148,24 +163,18 @@ h5 {
             }
         }
     }
-    function erase(){
-            ctx.clearRect(0, 0, w, h);
-            document.getElementById("canvasing").style.display = "none";
-       	    document.getElementById("answer").style.display="none";
-    }
+        //<input style="margin-left: 34%;"type="button" value="check" id="btn" size="30" onclick="save()" >
     </script>
-    <body onload="init()">
-        <canvas id="can" width="400px" height="400px" style="top:27%;border:2px solid;margin-left:35%"></canvas>
+    <body onload="init()" onload="save()">
+       <canvas id="can" width="396" height="396" style="border:2px solid;margin-left:35%"></canvas>
         <div style="margin-left: 5%;">Pen</div>
 	<div id="black" onclick="color(this)" style="margin-left: 5%;width:15px;height:15px;background:black"></div>
 
-        <div style="margin-left: 5%;" >Eraser</div>
-        <div id="white" onclick="color(this)" style="margin-left:5%; width:15px; height:15px; background:white;border:2px solid;"></div>
         <img id="canvasing" style="position:absolute;top:27%;left:54%;">
 	<h3 id="answer"></h3>
-        <input style="margin-left:34%"type="button" value="redraw/clear" id="clr" size="23" onclick="erase()" >
-        <input type="button" value="check" id="btn" size="30" onclick="save()" >
 		
+        <input style="margin-left: 34%" type="button" value="redraw/clear" id="clr" size="23" onclick="erase()" >
+        <input type="button" value="check" id="btn" size="30" onclick="save()" >
 	<input type="button" value="another one" onclick="window.location.reload();">
     </body>
 {% endblock %}

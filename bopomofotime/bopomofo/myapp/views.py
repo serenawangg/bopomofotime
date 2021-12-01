@@ -18,6 +18,12 @@ def logout_view(request):
     logout(request)
     return redirect("/")
 
+def about(request):
+    context = {
+                "title":"About Bopomofo Time!",
+            }
+    return render(request, "about.html", context=context)
+
 def index(request):
     context = {
                 "title":"Bopomofo Time!",

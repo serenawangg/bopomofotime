@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+
+
+<html>
+  <script src="{% static "css/foundation.css" %}"></script>
+<head>
+
+</head>
+<style>
+
+.logo {
+	display: block;
+	margin-left:auto;
+	margin-right:auto;
+	width: 40%;
+}
+ .button {
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 16px 128px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 20px;
+  font-weight: 550;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button1 {
+   background-color: #FFFF;
+  color: black;
+  border: 2px solid #0000CD;
+}
+
+.button1:hover {
+  background-color: #90EE90;
+  color: black;
+}
+.button2 {
+   background-color:#FFFF;
+  color: black;
+  border: 2px solid #0000CD;
+}
+
+.button2:hover {
+  background-color: rgb(100, 200, 100);
+  color: black;
+}
+.button3 {
+   background-color:#FFFF;
+  color: black;
+  border: 2px solid #0000CD;
+}
+
+.button3:hover {
+  background-color: rgb(100, 210, 150);
+  color: black;
+}
+.button4 {
+   background-color:#FFFF;
+  color: black;
+  border: 2px solid #0000CD;
+}
+
+.button4:hover {
+  background-color: rgb(100, 220, 175);
+  color: black;
+}
+
+.button5 {
+   background-color:#FFFF;
+  color: black;
+  border: 2px solid #0000CD;
+}
+
+.button5:hover {
+  background-color: rgb(100, 205, 200);
+  color: black;
+}
+
+.button6 {
+   background-color:#FFFF;
+  color: black;
+  border: 2px solid #0000CD;
+}
+
+.button6:hover {
+  background-color: rgb(100, 175, 255);
+  color: black;
+}
+
+h2{
+    width: 75%;
+    color: black;
+    text-align: center;
+    margin: auto;
+    border: 2px solid blue;
+    padding: 10px 10px;
+    border-radius: 15px;
+    font-size: 19px;
+    
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+
+</style>
+
+<!--Logo-->
+<div class="logo">
+	<img src="{% static "images/logo.jpg" %}"/>
+</div>
+
+<h2>    Bopomofo Time! is an educational learning platform for English speakers that don’t know any Mandarin who want to start by learning the Mandarin phonetic system. Each module utilizes the Mandarin phonetic system along with the corresponding English pronunciation. There are 4 different learning modules and a study page, each with a goal to teach the Mandarin phonetic system in a fun and interesting way. User login is required to access the learning materials, so sign in and start learning! </h2>
+
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("ys"); //toggle between showing what is behind the collapsible
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } 
+    });
+  }
+  </script>
+
+
+
+
+
+
+
+<!-- Form Goes Here-->
+
+	<script>
+
+	</script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="{% static "js/myvue.js" %}"></script>
+{% endblock %}
+
+
+</html>
